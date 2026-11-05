@@ -11,5 +11,8 @@
     ".": "./src/index.ts",
     "./obsidian": "./src/obsidian/index.ts",
     "./testing": "./src/testing/index.ts"
+  },
+  "devDependencies": {
+    "yaml": "2.9.1"
   }
 }

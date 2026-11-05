@@ -1,4 +1,4 @@
-import { Modal, Notice, Setting, type App } from "obsidian";
+import { Modal, Notice, Setting, type App, type ButtonComponent } from "obsidian";
 
 /** Logs the error and shows a short notice instead of failing silently. */
 export function notifyError(context: string, error: unknown): void {
@@ -62,6 +62,17 @@ export interface ConfirmOptions {
   destructive?: boolean;
 }
 
+/** CSS classes for destructive buttons: "mod-destructive" (Obsidian 1.13+) and "mod-warning" (older versions). */
+const DESTRUCTIVE_CLASSES = ["mod-destructive", "mod-warning"];
+
+/**
+ * Styles a button as destructive on every supported Obsidian version, without
+ * the deprecated setWarning() or the 1.13-only setDestructive().
+ */
+function markDestructive(button: ButtonComponent): void {
+  button.buttonEl.addClasses(DESTRUCTIVE_CLASSES);
+}
+
 class ConfirmModal extends Modal {
   private confirmed = false;
 
@@ -82,7 +93,7 @@ class ConfirmModal extends Modal {
           this.confirmed = true;
           this.close();
         });
-        if (this.options.destructive ?? true) button.setWarning();
+        if (this.options.destructive ?? true) markDestructive(button);
         else button.setCta();
       })
       .addButton((button) => button.setButtonText("Cancel").onClick(() => this.close()));
@@ -153,7 +164,7 @@ export function addButtonRow(parent: HTMLElement, buttons: readonly ButtonSpec[]
   for (const spec of buttons) {
     const button = row.createEl("button", { text: spec.text, attr: { type: "button" } });
     if (spec.variant === "cta") button.addClass("mod-cta");
-    if (spec.variant === "warning") button.addClass("mod-warning");
+    if (spec.variant === "warning") button.addClasses(DESTRUCTIVE_CLASSES);
     button.addEventListener("click", spec.onClick);
   }
   return row;

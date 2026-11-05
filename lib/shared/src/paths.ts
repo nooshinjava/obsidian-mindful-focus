@@ -5,12 +5,24 @@
 
 // Characters that are invalid on common file systems or break Obsidian links.
 const INVALID_FILE_NAME_CHARS = /[\\/:*?"<>|#^[\]]/g;
-// eslint-disable-next-line no-control-regex
-const CONTROL_CHARS = /[\u0000-\u001f\u007f]/g;
-// eslint-disable-next-line no-control-regex
-const HAS_CONTROL_CHARS = /[\u0000-\u001f\u007f]/;
 const WINDOWS_RESERVED_NAME = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i;
 const MAX_FILE_NAME_LENGTH = 100;
+
+/** ASCII control characters (U+0000–U+001F and U+007F), which are never valid in paths. */
+function isControlChar(char: string): boolean {
+  const code = char.codePointAt(0) ?? 0;
+  return code <= 0x1f || code === 0x7f;
+}
+
+function hasControlChars(text: string): boolean {
+  return Array.from(text).some(isControlChar);
+}
+
+function stripControlChars(text: string): string {
+  return Array.from(text)
+    .filter((char) => !isControlChar(char))
+    .join("");
+}
 
 export function normalizeVaultPath(input: string | null | undefined): string {
   return (input ?? "")
@@ -30,7 +42,7 @@ export function normalizeVaultPath(input: string | null | undefined): string {
  */
 export function isSafeVaultPath(input: string | null | undefined): boolean {
   const raw = (input ?? "").trim();
-  if (!raw || HAS_CONTROL_CHARS.test(raw) || /^[a-z]:/i.test(raw)) return false;
+  if (!raw || hasControlChars(raw) || /^[a-z]:/i.test(raw)) return false;
   const path = normalizeVaultPath(raw);
   if (!path) return false;
   return path.split("/").every((segment) => !segment.startsWith("."));
@@ -67,9 +79,7 @@ export function isMarkdownPath(path: string): boolean {
 
 /** Turns arbitrary text into a file name that is valid everywhere Obsidian runs. */
 export function toSafeFileName(name: string, fallback = "Untitled"): string {
-  const cleaned = name
-    .normalize("NFC")
-    .replace(CONTROL_CHARS, "")
+  const cleaned = stripControlChars(name.normalize("NFC"))
     .replace(INVALID_FILE_NAME_CHARS, "-")
     .replace(/\s+/g, " ")
     .replace(/-{2,}/g, "-")
