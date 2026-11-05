@@ -1,0 +1,30 @@
+{
+  "name": "obsidian-mindful-focus",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Focus sessions with a status-bar timer, deadline-based goals with labbooks, daily and weekly notes, and a weekly project report.",
+  "license": "MIT",
+  "author": "Nooshin Javaheripour (https://github.com/nooshinjava)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nooshinjava/obsidian-mindful-focus.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@orbitkit/shared": "file:lib/shared",
+    "esbuild": "0.28.2",
+    "obsidian": "1.14.4",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12",
+    "yaml": "2.9.1"
+  }
+}

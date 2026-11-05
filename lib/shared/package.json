@@ -1,0 +1,15 @@
+{
+  "name": "@orbitkit/shared",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Shared, framework-free helpers for the OrbitKit Obsidian plugins.",
+  "license": "MIT",
+  "author": "Nooshin Javaheripour (https://github.com/nooshinjava)",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./obsidian": "./src/obsidian/index.ts",
+    "./testing": "./src/testing/index.ts"
+  }
+}

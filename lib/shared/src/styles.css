@@ -1,0 +1,240 @@
+/* ── OrbitKit shared components ─────────────────────────────────────────────
+   Bundled at the top of every plugin's styles.css by scripts/build-plugins.mjs.
+   Uses Obsidian's CSS variables only, so light/dark themes keep working. */
+
+.orbitkit-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-3);
+}
+
+.orbitkit-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2-2);
+}
+
+.orbitkit-field-label {
+  font-weight: var(--font-semibold);
+  font-size: var(--font-ui-small);
+}
+
+.orbitkit-field-hint {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.orbitkit-field input[type="text"],
+.orbitkit-field input[type="number"],
+.orbitkit-field input[type="date"],
+.orbitkit-field input[type="search"],
+.orbitkit-field select,
+.orbitkit-field textarea {
+  width: 100%;
+}
+
+.orbitkit-field textarea {
+  min-height: 4.5em;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.orbitkit-field-row {
+  display: flex;
+  gap: var(--size-4-3);
+}
+
+.orbitkit-field-row > .orbitkit-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.orbitkit-field-row > .orbitkit-field.is-wide {
+  flex: 2;
+}
+
+.orbitkit-input-suffix {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2-2);
+}
+
+.orbitkit-input-suffix > span {
+  color: var(--text-muted);
+}
+
+.orbitkit-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--size-4-2);
+  margin-top: var(--size-4-4);
+}
+
+.orbitkit-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2-3);
+}
+
+button.orbitkit-chip {
+  height: auto;
+  padding: var(--size-2-2) var(--size-4-3);
+  border-radius: var(--radius-l);
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  box-shadow: none;
+  cursor: pointer;
+}
+
+button.orbitkit-chip:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+button.orbitkit-chip.is-selected {
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* Sidebar views */
+.orbitkit-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-3);
+  padding: var(--size-4-4);
+}
+
+.orbitkit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+}
+
+.orbitkit-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-4);
+}
+
+.orbitkit-stat {
+  text-align: center;
+}
+
+.orbitkit-stat-value {
+  font-size: var(--font-ui-large);
+  font-weight: var(--font-bold);
+  color: var(--text-accent);
+}
+
+.orbitkit-stat-label {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.orbitkit-view input[type="search"] {
+  width: 100%;
+}
+
+.orbitkit-section {
+  padding: var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.orbitkit-section-title {
+  margin: 0 0 var(--size-4-2);
+  font-size: var(--font-ui-medium);
+  color: var(--text-accent);
+}
+
+.orbitkit-card {
+  --orbitkit-accent: var(--text-faint);
+  padding: var(--size-4-3);
+  margin-bottom: var(--size-4-2);
+  border-radius: var(--radius-s);
+  border-left: 3px solid var(--orbitkit-accent);
+  background: var(--background-primary);
+  cursor: pointer;
+}
+
+.orbitkit-card:hover,
+.orbitkit-card:focus-visible {
+  background: var(--background-modifier-hover);
+}
+
+.orbitkit-card.is-static {
+  cursor: default;
+}
+
+.orbitkit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--size-4-2);
+}
+
+.orbitkit-card-title {
+  flex: 1;
+  font-weight: var(--font-semibold);
+  overflow-wrap: anywhere;
+}
+
+.orbitkit-card-meta {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  white-space: nowrap;
+}
+
+.orbitkit-card-body {
+  margin: var(--size-2-2) 0 var(--size-4-2);
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  line-height: var(--line-height-tight);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.orbitkit-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--size-4-2);
+}
+
+.orbitkit-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2-2);
+}
+
+.orbitkit-pill {
+  padding: 1px var(--size-4-2);
+  border-radius: var(--radius-l);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.orbitkit-icon-buttons {
+  display: flex;
+  gap: var(--size-2-2);
+}
+
+.orbitkit-icon-buttons .clickable-icon {
+  color: var(--text-muted);
+}
+
+.orbitkit-empty-state {
+  padding: var(--size-4-8) var(--size-4-4);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.orbitkit-empty-state-icon {
+  font-size: 2.5em;
+  margin-bottom: var(--size-4-2);
+}

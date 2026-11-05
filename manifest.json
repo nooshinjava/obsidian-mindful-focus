@@ -1,0 +1,10 @@
+{
+  "id": "mindful-focus",
+  "name": "Mindful Focus",
+  "version": "2.0.0",
+  "minAppVersion": "1.7.2",
+  "description": "Focus sessions with a status-bar timer, deadline-based goals with labbooks, daily and weekly notes, and a weekly project report.",
+  "author": "Nooshin Javaheripour",
+  "authorUrl": "https://github.com/nooshinjava",
+  "isDesktopOnly": false
+}

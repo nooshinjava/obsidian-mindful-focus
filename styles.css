@@ -1,0 +1,597 @@
+/* ── OrbitKit shared components ─────────────────────────────────────────────
+   Bundled at the top of every plugin's styles.css by scripts/build-plugins.mjs.
+   Uses Obsidian's CSS variables only, so light/dark themes keep working. */
+
+.orbitkit-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-3);
+}
+
+.orbitkit-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2-2);
+}
+
+.orbitkit-field-label {
+  font-weight: var(--font-semibold);
+  font-size: var(--font-ui-small);
+}
+
+.orbitkit-field-hint {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.orbitkit-field input[type="text"],
+.orbitkit-field input[type="number"],
+.orbitkit-field input[type="date"],
+.orbitkit-field input[type="search"],
+.orbitkit-field select,
+.orbitkit-field textarea {
+  width: 100%;
+}
+
+.orbitkit-field textarea {
+  min-height: 4.5em;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.orbitkit-field-row {
+  display: flex;
+  gap: var(--size-4-3);
+}
+
+.orbitkit-field-row > .orbitkit-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.orbitkit-field-row > .orbitkit-field.is-wide {
+  flex: 2;
+}
+
+.orbitkit-input-suffix {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2-2);
+}
+
+.orbitkit-input-suffix > span {
+  color: var(--text-muted);
+}
+
+.orbitkit-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--size-4-2);
+  margin-top: var(--size-4-4);
+}
+
+.orbitkit-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2-3);
+}
+
+button.orbitkit-chip {
+  height: auto;
+  padding: var(--size-2-2) var(--size-4-3);
+  border-radius: var(--radius-l);
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  box-shadow: none;
+  cursor: pointer;
+}
+
+button.orbitkit-chip:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+button.orbitkit-chip.is-selected {
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* Sidebar views */
+.orbitkit-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-3);
+  padding: var(--size-4-4);
+}
+
+.orbitkit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+}
+
+.orbitkit-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-4);
+}
+
+.orbitkit-stat {
+  text-align: center;
+}
+
+.orbitkit-stat-value {
+  font-size: var(--font-ui-large);
+  font-weight: var(--font-bold);
+  color: var(--text-accent);
+}
+
+.orbitkit-stat-label {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.orbitkit-view input[type="search"] {
+  width: 100%;
+}
+
+.orbitkit-section {
+  padding: var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.orbitkit-section-title {
+  margin: 0 0 var(--size-4-2);
+  font-size: var(--font-ui-medium);
+  color: var(--text-accent);
+}
+
+.orbitkit-card {
+  --orbitkit-accent: var(--text-faint);
+  padding: var(--size-4-3);
+  margin-bottom: var(--size-4-2);
+  border-radius: var(--radius-s);
+  border-left: 3px solid var(--orbitkit-accent);
+  background: var(--background-primary);
+  cursor: pointer;
+}
+
+.orbitkit-card:hover,
+.orbitkit-card:focus-visible {
+  background: var(--background-modifier-hover);
+}
+
+.orbitkit-card.is-static {
+  cursor: default;
+}
+
+.orbitkit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--size-4-2);
+}
+
+.orbitkit-card-title {
+  flex: 1;
+  font-weight: var(--font-semibold);
+  overflow-wrap: anywhere;
+}
+
+.orbitkit-card-meta {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  white-space: nowrap;
+}
+
+.orbitkit-card-body {
+  margin: var(--size-2-2) 0 var(--size-4-2);
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  line-height: var(--line-height-tight);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.orbitkit-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--size-4-2);
+}
+
+.orbitkit-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2-2);
+}
+
+.orbitkit-pill {
+  padding: 1px var(--size-4-2);
+  border-radius: var(--radius-l);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.orbitkit-icon-buttons {
+  display: flex;
+  gap: var(--size-2-2);
+}
+
+.orbitkit-icon-buttons .clickable-icon {
+  color: var(--text-muted);
+}
+
+.orbitkit-empty-state {
+  padding: var(--size-4-8) var(--size-4-4);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.orbitkit-empty-state-icon {
+  font-size: 2.5em;
+  margin-bottom: var(--size-4-2);
+}
+
+/* ── Mindful Focus ───────────────────────────────────────────────────────────
+   Shared OrbitKit component styles (forms, chips, cards, sections) are added
+   above this file at build time. Colours use Obsidian's theme variables. */
+
+.mindful-focus-muted {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+}
+
+input.mindful-focus-invalid[type] {
+  border-color: var(--text-error);
+}
+
+/* Buttons used in the panel */
+button.mindful-focus-button {
+  height: auto;
+  padding: var(--size-2-3) var(--size-4-3);
+  font-size: var(--font-ui-small);
+  cursor: pointer;
+}
+
+button.mindful-focus-button.is-small {
+  padding: var(--size-2-1) var(--size-4-2);
+  font-size: var(--font-ui-smaller);
+}
+
+.mindful-focus-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--size-4-2);
+  margin-bottom: var(--size-4-2);
+}
+
+.mindful-focus-section-header .orbitkit-section-title {
+  margin: 0;
+}
+
+.mindful-focus-header-buttons {
+  display: flex;
+  gap: var(--size-2-2);
+}
+
+/* Prompt */
+.mindful-focus-prompt {
+  padding: var(--size-4-3);
+  margin-bottom: var(--size-4-2);
+  border-radius: var(--radius-s);
+  border-left: 3px solid var(--text-accent);
+  background: var(--background-primary);
+}
+
+/* Current session */
+.mindful-focus-session-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2-1);
+  padding: var(--size-4-2) var(--size-4-3);
+  margin-bottom: var(--size-4-2);
+  border-radius: var(--radius-s);
+  border-left: 3px solid var(--interactive-accent);
+  background: var(--background-primary);
+}
+
+.mindful-focus-elapsed {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-semibold);
+  color: var(--text-accent);
+}
+
+/* Goals */
+.mindful-focus-goal.urgency-overdue {
+  --orbitkit-accent: var(--color-purple);
+  background: rgba(var(--color-purple-rgb), 0.06);
+}
+
+.mindful-focus-goal.urgency-critical {
+  --orbitkit-accent: var(--color-orange);
+  background: rgba(var(--color-orange-rgb), 0.06);
+}
+
+.mindful-focus-goal.urgency-high {
+  --orbitkit-accent: var(--color-yellow);
+}
+
+.mindful-focus-goal.urgency-medium {
+  --orbitkit-accent: var(--color-green);
+}
+
+.mindful-focus-goal.urgency-low {
+  --orbitkit-accent: var(--text-faint);
+}
+
+.mindful-focus-goal.urgency-completed {
+  --orbitkit-accent: var(--text-faint);
+  opacity: 0.7;
+}
+
+.mindful-focus-goal .orbitkit-card-title.is-done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.mindful-focus-priority {
+  padding: 1px var(--size-4-2);
+  border-radius: var(--radius-l);
+  font-size: var(--font-ui-smaller);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  color: var(--text-on-accent);
+  white-space: nowrap;
+}
+
+.mindful-focus-priority.priority-critical {
+  background: var(--color-red);
+}
+
+.mindful-focus-priority.priority-high {
+  background: var(--color-orange);
+}
+
+.mindful-focus-priority.priority-medium {
+  background: var(--color-green);
+}
+
+.mindful-focus-priority.priority-low {
+  background: var(--text-faint);
+}
+
+.mindful-focus-deadline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--size-2-2) 0 var(--size-4-2);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.mindful-focus-days {
+  padding: 1px var(--size-2-3);
+  border-radius: var(--radius-s);
+  font-weight: var(--font-semibold);
+}
+
+.mindful-focus-days.urgency-overdue {
+  background: var(--color-purple);
+  color: var(--text-on-accent);
+}
+
+.mindful-focus-days.urgency-critical {
+  background: var(--color-orange);
+  color: var(--text-on-accent);
+}
+
+.mindful-focus-days.urgency-high {
+  color: var(--color-orange);
+}
+
+button.mindful-focus-labbook-link {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--size-4-2);
+  padding: var(--size-2-2) var(--size-4-2);
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+button.mindful-focus-labbook-link:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+/* Progress bars (width comes from --mindful-focus-progress) */
+.mindful-focus-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-2);
+}
+
+.mindful-focus-progress-bar {
+  flex: 1;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--background-modifier-border);
+}
+
+.mindful-focus-progress-fill {
+  width: var(--mindful-focus-progress, 0%);
+  height: 100%;
+  border-radius: 3px;
+  background: var(--interactive-accent);
+  transition: width 0.3s ease;
+}
+
+.mindful-focus-progress-fill.is-category {
+  background: var(--mindful-focus-category-color, var(--interactive-accent));
+}
+
+.mindful-focus-progress .mindful-focus-muted {
+  font-size: var(--font-ui-smaller);
+  white-space: nowrap;
+}
+
+/* Milestones */
+.mindful-focus-milestones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2-1);
+  margin-top: var(--size-4-2);
+}
+
+.mindful-focus-milestone {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2-3);
+  font-size: var(--font-ui-small);
+  cursor: pointer;
+}
+
+.mindful-focus-milestone input[type="checkbox"] {
+  margin: 0;
+}
+
+.mindful-focus-milestone .is-done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.mindful-focus-goal-actions {
+  flex-wrap: wrap;
+  margin-top: var(--size-4-2);
+  padding-top: var(--size-4-2);
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+/* Weekly tracker */
+.mindful-focus-category {
+  margin-bottom: var(--size-4-3);
+  padding: var(--size-4-2) var(--size-4-3);
+  border-radius: var(--radius-s);
+  border-left: 3px solid var(--mindful-focus-category-color, var(--text-muted));
+  background: var(--background-primary);
+}
+
+button.mindful-focus-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--size-2-3);
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  color: var(--text-normal);
+  cursor: pointer;
+}
+
+.mindful-focus-category-name {
+  font-weight: var(--font-semibold);
+  font-size: var(--font-ui-small);
+}
+
+.mindful-focus-category-items {
+  margin-top: var(--size-4-2);
+  padding-top: var(--size-4-2);
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.mindful-focus-category-items.is-collapsed {
+  display: none;
+}
+
+.mindful-focus-category-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--size-2-1) 0;
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.mindful-focus-hours {
+  font-family: var(--font-monospace);
+}
+
+.mindful-focus-week-total {
+  padding-top: var(--size-4-2);
+  border-top: 1px solid var(--background-modifier-border);
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  text-align: center;
+}
+
+/* Modals */
+.mindful-focus-notice {
+  padding: var(--size-4-2) var(--size-4-3);
+  border-radius: var(--radius-s);
+  border-left: 3px solid var(--interactive-accent);
+  background: var(--background-secondary);
+}
+
+.mindful-focus-review-heading {
+  margin: var(--size-4-4) 0 var(--size-4-2);
+}
+
+.mindful-focus-review-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+}
+
+.mindful-focus-review-item {
+  padding: var(--size-4-2) var(--size-4-3);
+  border-radius: var(--radius-s);
+  border-left: 3px solid var(--interactive-accent);
+  background: var(--background-secondary);
+}
+
+.mindful-focus-review-item.is-at-risk {
+  border-left-color: var(--color-orange);
+  background: rgba(var(--color-orange-rgb), 0.06);
+}
+
+.mindful-focus-review-item.is-on-track {
+  border-left-color: var(--color-green);
+}
+
+.mindful-focus-review-item.is-completed {
+  border-left-color: var(--text-faint);
+  opacity: 0.7;
+}
+
+/* Status bar */
+.mindful-focus-status {
+  font-variant-numeric: tabular-nums;
+}
+
+.mindful-focus-status.is-active {
+  color: var(--text-accent);
+}
+
+/* Check-in after a session was left open */
+.mindful-focus-checkin-custom.is-hidden {
+  display: none;
+}
